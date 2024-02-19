@@ -1,0 +1,7 @@
+
+.actives,.nav-link:hover{
+    color: blue!important;
+}
+.nav-Link{
+    transition: all 0.7s ease-out;
+}
