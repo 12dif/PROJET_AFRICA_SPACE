@@ -16,6 +16,13 @@ import ProduitItem1 from "./pages/ProduitItem1.jsx";
 import ProduitItem2 from "./pages/ProduitItem2.jsx";
 import ProduitItem3 from "./pages/ProduitItem3.jsx";
 import ArtisteItem from "./pages/ArtisteItem.jsx";
+import ProduitItem4 from "./pages/ProduitItem4.jsx";
+import ProduitItem6 from "./pages/ProduitItem6.jsx";
+import ProduitItem7 from "./pages/ProduitItem7.jsx";
+import ProduitItem8 from "./pages/ProduitItem8.jsx";
+import FormulaireInscription from "./pages/FormulaireInscription.jsx";
+
+
 
 
 
@@ -70,9 +77,33 @@ const router = createBrowserRouter([
 
             },
             {
+                path: "/produit4/:id",
+                element: <ProduitItem4 />,
+
+            },
+            {
+                path: "/produit6/:id",
+                element: <ProduitItem6 />,
+
+            },
+            {
+                path: "/produit7/:id",
+                element: <ProduitItem7 />,
+
+            },
+            {
+                path: "/produit8/:id",
+                element: <ProduitItem8 />,
+
+            },
+            {
                 path: "/artiste/:id",
                 element: <ArtisteItem />,
 
+            },
+            {
+                path: "FormulaireInscription", // chemin vers la page
+                element: <FormulaireInscription />, // composant à afficher
             },
 
         ],

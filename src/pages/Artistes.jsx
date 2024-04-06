@@ -13,7 +13,11 @@ export default function Artistes() {
             <div className='img-fixed-top d-none d-lg-block' style={divStyle}></div>
             <main className='container'>
                 <div className="row my-5">
-                    <h1 className="text-center mt-3">NOS ARTISTES</h1>
+                    <p className="text-center mt-3 fs-1">NOS ARTISTES
+                        <p className=" bg-danger m-auto" style={{height:'5px', width:'150px'}}></p>
+                    </p>
+
+
                     <div className="col-lg-2 col-md-3 col-sm-4 fw-bold">
                         <h2>10 artistes</h2>
                     </div>

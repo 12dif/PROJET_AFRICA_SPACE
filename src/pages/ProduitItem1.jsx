@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useParams} from "react-router-dom";
-import { dataProduitUn } from "../dataProduit.jsx";
+import { dataProduitUn} from "../dataProduit.jsx";
 import {MdAddShoppingCart} from "react-icons/md";
-import {FaQuestion} from "react-icons/fa";
+import {FaQuestion, FaStar, FaStarHalfAlt} from "react-icons/fa";
 import {useStore} from "../../Store.jsx";
+import CommentaireForm from "../components/CommentaireForm.jsx";
+import {FaCircleUser} from "react-icons/fa6";
+
+
 
 export default function ProduitItem1() {
+
+
+
+    const [commentaires, setCommentaires] = useState([]);
+
 
 
 
@@ -21,8 +30,6 @@ export default function ProduitItem1() {
     }
 
 
-
-
     const [produc, setProduc] = useState({});
     const { id } = useParams();
     console.log(id)
@@ -33,6 +40,34 @@ export default function ProduitItem1() {
             setProduc(produit);
         }
     }, []);
+
+
+
+    const [showCommentaires, setShowCommentaires] = useState(false);
+
+    const handleCommentSubmit = (nouveauCommentaire) => {
+
+        console.log('Nouveau commentaire soumis :', nouveauCommentaire);
+        setCommentaires([...commentaires, nouveauCommentaire]);
+        setShowCommentaires(true);
+    };
+
+    const renderStars = (note) => {
+        const stars = [];
+        const roundedNote = Math.round(note); // Arrondir la note
+        for (let i = 1; i <= 5; i++) {
+            if (i <= roundedNote) {
+                stars.push(<FaStar key={i} color="#ffc107" />);
+            } else if (i - 0.5 === roundedNote) {
+                stars.push(<FaStarHalfAlt key={i} color="#ffc107" />);
+            } else {
+                stars.push(<FaStar key={i} color="#e4e5e9" />);
+            }
+        }
+        return stars;
+    };
+
+
 
     return (
         <main className="container-fluid mt-5">
@@ -92,6 +127,33 @@ export default function ProduitItem1() {
                                         Poser Une Question <FaQuestion /> </Link>
 
                                 </div>
+
+                                <CommentaireForm onCommentSubmit={handleCommentSubmit} commentaires={commentaires}/>
+
+
+                                {
+                                    showCommentaires &&(
+                                    <div className="card" style={{width:'350px'}}>
+                                <div className="card-body">
+                                    {commentaires.map((commentaire, index) => (
+                                        <div key={index}>
+                                            <p className='fw-bold'>
+                                               <strong className='fs-1 me-2'><FaCircleUser /></strong>
+                                                {commentaire.nom}
+                                            </p>
+                                            <p> {commentaire.contenu}</p>
+                                            <p className='text-secondary'> <small>{commentaire.date}</small> </p>
+                                            <p className='text-secondary'> <small>{commentaire.heure}</small> </p>
+                                            <p> {renderStars(commentaire.note)}</p>
+                                            <hr />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                                    )}
+
+
+
                             </div>
 
                         </div>

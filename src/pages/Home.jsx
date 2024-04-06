@@ -5,6 +5,7 @@ import CardUn from "../components/CardUn.jsx";
 import CardDeux from "../components/CardDeux.jsx";
 import CardTrois from "../components/CardTrois.jsx";
 import CardArtistes from "../components/CardArtistes.jsx";
+import AfricaSpace from "../components/AfricaSpace.jsx";
 
 
 
@@ -114,21 +115,7 @@ export default function Home() {
                    }
 
                </div>
-
-               <div className="container-fluid">
-                   <div className="row my-5 mt-4">
-                       <p className=" h1 mt-3">AFRICA SPACE</p>
-                       <span className=" bg-danger mx-3 " style={{height:"5px", width:'250px'}}></span><br/>
-                       <p className="h3 mt-5">Africa space vous propose une boutique en ligne d’œuvres uniques d’art
-                           contemporain africain, livrées pour vous en Europe et dans le monde entier. Découvrez des
-                           approches surprenantes, ainsi que des réflexions et révoltes au travers de créations
-                           colorées.
-                           <br/>C’est un regard féminin, humain et écologique posé sur les différents artistes montants.
-                               Une délicieuse ode au voyage au cœur de la culture africaine.</p>
-                   </div>
-               </div>
-
-
+              <AfricaSpace/>
            </main>
 
        </>

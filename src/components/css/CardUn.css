@@ -1,0 +1,13 @@
+
+
+.card.hovered {
+    box-shadow: 5px 5px 5px rgba(6, 8, 4, 0.6);
+    transform: scale(1.03);
+   ;
+    /* Ajoutez une ombre portée lors du survol */
+}
+.card {
+    /* Autres styles de la carte */
+    transition: 0.2s ease;
+}
+

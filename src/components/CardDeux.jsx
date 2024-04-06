@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {MdAddShoppingCart} from "react-icons/md";
 import {Link} from "react-router-dom";
 import {useStore} from "../../Store.jsx";
+import './css/CardUn.css'
 
 export default function CardDeux({image,title,origin,category,price,id,produit}) {
+
+    const [isHovered, setIsHovered] = useState(false);
+    const handleTouchStart = () => {
+        setIsHovered(true);
+    };
+
+    const handleTouchEnd = () => {
+        setIsHovered(false);
+    };
 
     const updateCARD = useStore((state) => state.updateCARD)
     const CARD = useStore((state) => state.CARD)
@@ -20,9 +30,15 @@ export default function CardDeux({image,title,origin,category,price,id,produit})
 
 
     return (
-
-            <div className=' mb-3 border-0'>
-                <img src={image} className="card-img-top" style={{height:'300px'}} alt=""/>
+            <div
+                className={`card ${isHovered ? 'hovered' : ''}`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}
+                style={{border:'none'}}
+            >
+                <div className=' mb-3 border-0  shadow'>
+                    <img src={image} className="card-img-top" style={{height:'300px'}} alt=""/>
                     <div className="card-body my-3">
                         <h5 className="card-title ms-3 ">{title}</h5>
                         <p className="card-text ms-3 ">
@@ -35,6 +51,8 @@ export default function CardDeux({image,title,origin,category,price,id,produit})
                         </div>
                     </div>
 
-        </div>
+                </div>
+            </div>
+
     )
 }

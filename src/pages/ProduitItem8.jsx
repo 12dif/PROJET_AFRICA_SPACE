@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
-import {dataProduitdeux} from "../dataProduit.jsx";
+import {dataProduitphotographie, dataProduittrois} from "../dataProduit.jsx";
 import {MdAddShoppingCart} from "react-icons/md";
 import {FaQuestion, FaStar, FaStarHalfAlt} from "react-icons/fa";
 import {useStore} from "../../Store.jsx";
 import CommentaireForm from "../components/CommentaireForm.jsx";
 import {FaCircleUser} from "react-icons/fa6";
 
-
-export default function ProduitItem2() {
+export default function ProduitItem8() {
 
     const updateCARD = useStore((state) => state.updateCARD)
     const CARD = useStore((state) => state.CARD)
@@ -26,15 +25,15 @@ export default function ProduitItem2() {
     console.log(id)
 
     useEffect(() => {
-        const produit = dataProduitdeux.find(item => item.id === id);
+        const produit = dataProduitphotographie.find(item => item.id === id);
         if (produit) {
             setProduc(produit);
         }
-    }, [])
+    }, [id]);
 
     const [commentaires, setCommentaires] = useState([]);
-    const [showCommentaires, setShowCommentaires] = useState(false);
 
+    const [showCommentaires, setShowCommentaires] = useState(false);
 
     const handleCommentSubmit = (nouveauCommentaire) => {
 
@@ -59,9 +58,7 @@ export default function ProduitItem2() {
     };
 
 
-
     return (
-
         <main className="container-fluid mt-5">
             <div className='container'>
                 <div>
@@ -138,6 +135,8 @@ export default function ProduitItem2() {
                                         </div>
                                     </div>
                                 )}
+
+
 
 
                         </div>

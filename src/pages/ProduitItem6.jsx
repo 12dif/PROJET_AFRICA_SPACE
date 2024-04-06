@@ -1,14 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
-import {dataProduitdeux} from "../dataProduit.jsx";
+import { dataProduitphotographie} from "../dataProduit.jsx";
 import {MdAddShoppingCart} from "react-icons/md";
-import {FaQuestion, FaStar, FaStarHalfAlt} from "react-icons/fa";
+import {FaQuestion} from "react-icons/fa";
 import {useStore} from "../../Store.jsx";
-import CommentaireForm from "../components/CommentaireForm.jsx";
-import {FaCircleUser} from "react-icons/fa6";
 
-
-export default function ProduitItem2() {
+export default function ProduitItem6() {
 
     const updateCARD = useStore((state) => state.updateCARD)
     const CARD = useStore((state) => state.CARD)
@@ -26,39 +23,11 @@ export default function ProduitItem2() {
     console.log(id)
 
     useEffect(() => {
-        const produit = dataProduitdeux.find(item => item.id === id);
+        const produit = dataProduitphotographie.find(item => item.id === id);
         if (produit) {
             setProduc(produit);
         }
-    }, [])
-
-    const [commentaires, setCommentaires] = useState([]);
-    const [showCommentaires, setShowCommentaires] = useState(false);
-
-
-    const handleCommentSubmit = (nouveauCommentaire) => {
-
-        console.log('Nouveau commentaire soumis :', nouveauCommentaire);
-        setCommentaires([...commentaires, nouveauCommentaire]);
-        setShowCommentaires(true);
-    };
-
-    const renderStars = (note) => {
-        const stars = [];
-        const roundedNote = Math.round(note); // Arrondir la note
-        for (let i = 1; i <= 5; i++) {
-            if (i <= roundedNote) {
-                stars.push(<FaStar key={i} color="#ffc107" />);
-            } else if (i - 0.5 === roundedNote) {
-                stars.push(<FaStarHalfAlt key={i} color="#ffc107" />);
-            } else {
-                stars.push(<FaStar key={i} color="#e4e5e9" />);
-            }
-        }
-        return stars;
-    };
-
-
+    }, []);
 
     return (
 
@@ -115,30 +84,6 @@ export default function ProduitItem2() {
                             <Link to="/Contact" className="btn  bg-info text-white fw-bold px-4" type="button">
 
                                 Poser Une Question <FaQuestion /> </Link>
-                            <CommentaireForm onCommentSubmit={handleCommentSubmit} commentaires={commentaires}/>
-
-
-                            {
-                                showCommentaires &&(
-                                    <div className="card" style={{width:'350px'}}>
-                                        <div className="card-body">
-                                            {commentaires.map((commentaire, index) => (
-                                                <div key={index}>
-                                                    <p className='fw-bold'>
-                                                        <strong className='fs-1 me-2'><FaCircleUser /></strong>
-                                                        {commentaire.nom}
-                                                    </p>
-                                                    <p> {commentaire.contenu}</p>
-                                                    <p className='text-secondary'> <small>{commentaire.date}</small> </p>
-                                                    <p className='text-secondary'> <small>{commentaire.heure}</small> </p>
-                                                    <p> {renderStars(commentaire.note)}</p>
-                                                    <hr />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-
 
                         </div>
                     </div>

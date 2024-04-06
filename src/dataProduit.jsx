@@ -187,17 +187,166 @@ const dataProduittrois=[
 
 ];
 
+
+const dataProduitol=[
+    {
+        "id": "b6fafb2a-8ff2-4c13-9ee1-363351431295",
+        "title": "SYLLABAIRE",
+        "origin": "Mali",
+        "category": "OEUVRE LITTERAIRE",
+        "name": "LEO",
+        "price":20000,
+        "image": "/images/Oeuvres/images.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+
+    },
+    {
+        "id": "da6bd151-8559-4687-a2c8-41fd756263de",
+        "title": "SOUNDJATA",
+        "origin": "Mali",
+        "category": "OEUVRE LITTERAIRE",
+        "name": "LEO",
+        "price": 20000,
+        "image": "/images/Oeuvres/soundjata-ou-l-epopee-mandingue.webp",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id": "53d5a82f-35e4-468b-9ff8-f9b22312a619",
+        "title": "L'ENFANT NOIR",
+        "origin": "Mali",
+        "category": "OEUVRE LITTERAIRE",
+        "name": "LEO",
+        "price": 30000,
+        "image": "/images/Oeuvres/téléchargement%20(2).jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id": "e3ad4e84-d01b-472c-81f3-025e11935197",
+        "title": "LE PLEURE-RIRE",
+        "origin": "Mali",
+        "category": "OEUVRE LITTERAIRE",
+        "name": "LEO",
+        "price": 100000,
+        "image": "/images/Oeuvres/téléchargement%20(1).jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    }
+
+];
+
+const dataProduitphotographie=[
+
+    {
+        "id": "83710b2f-ecf7-425b-a9c5-c32b0ad15658",
+        "title": "AFRICAN-WOMEN",
+        "origin": "Congo",
+        "category": "PHOTOGRAPHIE",
+        "name": "FRED",
+        "price":200000,
+        "image": "/images/PHOTOGRAPHIE/beautiful-african-women-fantastic-golden-260nw-1952986171.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+
+    },
+    {
+        "id": "253d1cf1-25de-4a25-85db-ade036f7e451",
+        "title": "AFRICAN-MAN",
+        "origin": "Congo",
+        "category": "PHOTOGRAPHIE",
+        "name": "FRED",
+        "price": 200000,
+        "image": "/images/PHOTOGRAPHIE/PHOT3.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id": "9190031d-b2c9-4fc5-b889-282a27ab6d00",
+        "title": "GHANAIN-DISH",
+        "origin": "Congo",
+        "category": "PHOTOGRAPHIE",
+        "name": "FRED",
+        "price": 300000,
+        "image": "/images/PHOTOGRAPHIE/plan-view-local-ghanaian-dish-260nw-1845330106.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id":"69a8899a-9098-4b7c-b784-2e6772ca7f34",
+        "title": "BLACK-CHILD",
+        "origin": "Congo",
+        "category": "PHOTOGRAPHIE",
+        "name": "FRED",
+        "price": 100000,
+        "image": "/images/PHOTOGRAPHIE/téléchargement%20(4).jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    }
+
+];
+
+const dataProduitsculptures=[
+    {
+        "id": "83710b2f-ecf7-425b-a9c5-c32b0ad15658",
+        "title": "MASK-AFRICA",
+        "origin": "Cameroun",
+        "category": "SCULPTURE",
+        "name": "GAUTHIER",
+        "price":100000,
+        "image": "/images/SCULPTURE/colorful-mask-african-style-tribal-260nw-1849750099.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+
+    },
+    {
+        "id": "79c6b0ff-9288-463a-b3b7-1615cf84952f",
+        "title": "WOMAN-ISOLATE",
+        "origin": "Cameroun",
+        "category": "SCULPTURE",
+        "name": "GAUTHIER",
+        "price": 500000,
+        "image": "/images/SCULPTURE/figure-woman-isolated-on-white-260nw-100995310.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id": "486a3bbc-610f-49ed-97fd-6d72047cc113",
+        "title": "MAMA AFRICA",
+        "origin": "Cameroun",
+        "category": "SCULPTURE",
+        "name": "GAUTHIER",
+        "price": 200000,
+        "image": "/images/SCULPTURE/saint-louis-senegal-africa-november-260nw-2386013215.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    },
+    {
+        "id":"23b17714-b443-45ec-b4d4-571ad012f45b",
+        "title": "WOODEN",
+        "origin": "Cameroun",
+        "category": "SCULPTURE",
+        "name": "GAUTHIER",
+        "price": 500000,
+        "image": "/images/SCULPTURE/wooden-figure-thinking-man-made-260nw-174826439.jpg",
+        "histoire":" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur est ex ipsa itaque necessitatibus quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli",
+        "plus":"  quibusdam sapiente .blanditiis cum nemo placeat quae quas totam veli"
+    }
+
+];
+
 const dataProduitartites=[
     {
         "id": "97cbd7d5-be3a-4a77-b85c-4a674cddc928",
         "name": "GAUTHIER",
-        "bibiographie": "ipsum anim esse ut ea non laboris ullamco sunt Lorem nisi amet in magna deserunt excepteur non nisi velit ex anim aliquip ipsum laboris sint officia cillum",
+        "bibiographie": "ipsum anim  ullamco sunt Lorem nisi amet in magna deserunt excepteur non nisi velit ex anim aliquip ipsum laboris sint officia cillum",
         "image": "/images/artisPe/2-brand_default.jpg"
     },
     {
         "id": "e00f5df5-b481-40ff-abb8-96223add0c05",
         "name": "LEO",
-        "bibiographie": "labore sit cupidatat exercitation do non laboris non ea cupidatat commodo enim deserunt enim magna deserunt excepteur voluptate do dolor irure nisi voluptate commodo ullamco",
+        "bibiographie":"cupidatat commodo enim deserunt enim magna deserunt excepteur voluptate do dolor irure nisi voluptate commodo ullamco",
         "image": "/images/artisPe/8-brand_default.jpg"
     },
     {
@@ -209,7 +358,7 @@ const dataProduitartites=[
     {
         "id": "72d5f381-2732-4c52-a4ec-58bff6544e3b",
         "name": "AHMED",
-        "bibiographie": " cupidatat nostrud nulla nulla nulla ad ipsum velit sit dolore labore quis ut voluptate sint commodo id consectetur Lorem incididunt cupidatat velit fugiat sit duis deserunt",
+        "bibiographie": " nulla ad ipsum velit sit dolore labore quis ut voluptate sint commodo id consectetur Lorem incididunt cupidatat velit fugiat sit duis deserunt",
         "image": "/images/artisD/12-brand_default.jpg"
     },
     {
@@ -221,7 +370,7 @@ const dataProduitartites=[
     {
         "id": "9fffe843-2c82-44a1-930a-77dd37e48af6",
         "name": "LUCY",
-        "bibiographie": " anim laboris eu fugiat velit irure ex adipisicing consectetur officia laborum mollit deserunt consectetur consequat dolore duis sint do proident veniam labore minim tempor aliqua qui",
+        "bibiographie": " anim adipisicing consectetur officia laborum mollit deserunt consectetur consequat dolore duis sint do proident veniam labore minim tempor aliqua qui",
         "image": "/images/artisO/20-brand_default.jpg"
     },
     {
@@ -233,7 +382,7 @@ const dataProduitartites=[
     {
         "id": "a3e7b6fa-e8b3-46da-ba57-d7de6b2009d9",
         "name": "FRED",
-        "bibiographie": " amet sunt nulla nisi amet dolore consequat non proident voluptate officia amet ea sunt amet veniam consectetur Lorem in pariatur eu amet cupidatat culpa velit sint incididunt Lorem sunt duis",
+        "bibiographie": " consequat non proident voluptate officia amet ea sunt amet veniam consectetur Lorem in pariatur eu amet cupidatat culpa velit sint incididunt Lorem sunt duis",
         "image": "/images/artisPh/16-brand_default.jpg"
     },
     {
@@ -245,9 +394,9 @@ const dataProduitartites=[
     {
         "id": "ed41d315-bfab-404b-a7f1-6bacc2c2be73",
         "name": "DONALD",
-        "bibiographie": "consequat cillum dolore ea pariatur labore consequat non adipisicing amet ea aliquip sunt dolor officia sunt aliquip qui aute esse dolor nulla cupidatat non cillum officia consectetur adipisicing laboris aute",
+        "bibiographie": " pariatur labore consequat non adipisicing amet ea aliquip sunt dolor officia sunt aliquip qui aute esse dolor nulla cupidatat non cillum officia consectetur adipisicing laboris aute",
         "image": "/images/artisS/9-brand_default.jpg"
     }
 ]
 
- export{dataProduitUn, dataProduitdeux,dataProduittrois,dataProduitartites}
+ export{dataProduitUn, dataProduitdeux,dataProduittrois,dataProduitartites,dataProduitol,dataProduitphotographie,dataProduitsculptures}
