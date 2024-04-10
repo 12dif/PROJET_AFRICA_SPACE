@@ -10,7 +10,9 @@ import Logo from "./Logo.jsx";
 
 export default function NavBar() {
     const CARD = useStore((state) => state.CARD)
-
+     const hide = ()=>{
+        document.querySelector(`#navbarSupportedContent`).classList.remove(`show`)
+     }
 
     return (
         <>
@@ -75,11 +77,13 @@ export default function NavBar() {
                                         className={({ isActive }) =>
                                             isActive ? "nav-link actives" : "nav-link"
                                         }
+                                        onClick={hide}
                                         to="/Catalogue"> CATALOGUE </NavLink>
                                 </li>
 
                                 <li className="nav-item mx-3 fw-bold">
                                     <NavLink
+                                        onClick={hide}
                                         className={({ isActive }) =>
                                             isActive ? "nav-link actives" : "nav-link"
                                         }
@@ -88,6 +92,7 @@ export default function NavBar() {
 
                                 <li className="nav-item mx-3 fw-bold">
                                     <NavLink
+                                        onClick={hide}
                                         className={({ isActive }) =>
                                             isActive ? "nav-link actives" : "nav-link"
                                         }
@@ -96,6 +101,7 @@ export default function NavBar() {
 
                                 <li className="nav-item mx-3 fw-bold">
                                     <NavLink
+                                        onClick={hide}
                                         className={({ isActive }) =>
                                             isActive ? "nav-link actives" : "nav-link"
                                         }
