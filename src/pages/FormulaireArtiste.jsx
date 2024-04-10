@@ -223,7 +223,7 @@ export default function FormulaireArtiste() {
                 </div>
                     <div>
                         <Link to='/Artistes'
-                                  className='btn btn-success'>
+                                  className='btn btn-success mt-3'>
                             <IoIosArrowBack /> Retour a la page Artistes
                         </Link>
                     </div>

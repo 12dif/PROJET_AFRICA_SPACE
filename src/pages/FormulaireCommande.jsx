@@ -5,6 +5,9 @@ import * as yup from "yup"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import InfProdCmd from "../components/InfProdCmd.jsx";
+import {Link} from "react-router-dom";
+import {IoIosArrowBack} from "react-icons/io";
+import {useStore} from "../../Store.jsx";
 
 
 
@@ -30,6 +33,7 @@ const schema = yup
     .required()
 
 export default function FormulaireCommande() {
+    const resetCARD=useStore((state)=> state.resetCARD)
 
 
     const toastStyle = {
@@ -85,6 +89,7 @@ export default function FormulaireCommande() {
             progress: undefined,
         });
         reset()
+        resetCARD()
 
     }
 
@@ -98,7 +103,7 @@ export default function FormulaireCommande() {
                             <h1>Commander</h1>
                             <p className=" bg-danger m-auto" style={{height:'5px', width:'150px'}}></p>
                         </div>
-                        <div className='col-lg-6'>
+                        <div className='col-lg-6 mb-5'>
                             <InfProdCmd/>
                         </div>
 
@@ -170,6 +175,11 @@ export default function FormulaireCommande() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <Link to='/ShoppingCart' className='btn btn-success mt-3'>
+                            <IoIosArrowBack />Retour vers panier
+                        </Link>
                     </div>
                 </div>
             </main>
