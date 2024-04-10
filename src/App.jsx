@@ -21,6 +21,8 @@ import ProduitItem6 from "./pages/ProduitItem6.jsx";
 import ProduitItem7 from "./pages/ProduitItem7.jsx";
 import ProduitItem8 from "./pages/ProduitItem8.jsx";
 import FormulaireInscription from "./pages/FormulaireInscription.jsx";
+import FormulaireCommande from "./pages/FormulaireCommande.jsx";
+import FormulaireArtiste from "./pages/FormulaireArtiste.jsx";
 
 
 
@@ -102,8 +104,16 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "FormulaireInscription", // chemin vers la page
-                element: <FormulaireInscription />, // composant à afficher
+                path: "FormulaireInscription",
+                element: <FormulaireInscription />,
+            },
+            {
+                path: "FormulaireCommande",
+                element: <FormulaireCommande/>,
+            },
+            {
+                path: "FormulaireArtiste",
+                element: <FormulaireArtiste/>,
             },
 
         ],

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import {MdAddShoppingCart} from "react-icons/md";
-import {useStore} from "../../../Store.jsx";
+import {useStore} from "../Store.jsx";
 
 export default function CardHuit({image,title,origin,category,price,id,produit}) {
 

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useStore} from "../../Store.jsx";
 import {FaMinus, FaPlus, FaRegTrashAlt} from "react-icons/fa";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
+import {toast} from "react-toastify";
+
 
 export default function ShoppingCart() {
 
@@ -10,6 +13,24 @@ export default function ShoppingCart() {
         height: '35vh',
     };
 
+    const storedUser = useStore((state) => state.user);
+    const connection = useStore((state) => state.CONECT);
+
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    }, []);
+
+    const handleCommand = () => {
+        if (connection) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                return;
+            }
+        }
+
+
+        toast.error('Vous devez être connecté pour passer une commande.');
+    };
 
     const CARD = useStore((state) => state.CARD)
     const updateProduit = useStore((state) => state.updateProduit)
@@ -45,6 +66,9 @@ export default function ShoppingCart() {
 
     }
 
+    const totalProducts = CARD.reduce((total, item) => total + item.qte, 0);
+
+
 
     return (
         <>
@@ -66,6 +90,14 @@ export default function ShoppingCart() {
 
                     ):(
                         <div className='container justify-content-center'>
+                            <div className=" mt-5 mb-3 fs-4">
+                                <p>
+                                   <span className='fw-bold'>
+                                      Totals Produits:
+                                   </span>  Vous avez
+                                    <span className='text-danger fw-bold'> {totalProducts}</span> produits  dans votre panier
+                                </p>
+                            </div>
                             <div className="table-responsive">
                                 <table className="table mt-5">
                                     <thead>
@@ -80,7 +112,10 @@ export default function ShoppingCart() {
                                         CARD.map((item,index)=>{
                                             return(
                                                 <tr>
-                                                    <th scope="row"><img src={item.image} alt="Description de l'image" width={100} /> <br/> {item.title} <br/> {item.category}</th>
+                                                    <th scope="row">
+                                                        <img src={item.image} alt="Description de l'image" width={100} />
+                                                        <br/> {item.title} <br/> {item.category}
+                                                    </th>
                                                     <td>
                                                         <div className="hstack gap-1">
                                                             <button className="btn btn" onClick={()=>addQte(item.id)}>
@@ -96,11 +131,8 @@ export default function ShoppingCart() {
                                                     </td>
                                                     <td>{item.price} FCFA</td>
 
-                                                    <span className="text-danger" role='button' onClick={()=>dePro(item.id)}><FaRegTrashAlt /></span>
+                                                    <span className="text-danger" role='button' onClick={()=>dePro(item.id)}> <FaRegTrashAlt /></span>
                                                 </tr>
-
-
-
 
 
                                             )
@@ -108,11 +140,10 @@ export default function ShoppingCart() {
 
                                     }
 
-
                                     </tbody>
                                 </table>
                             </div>
-                            <div className='text-end d-flex justify-content-between'>
+                            <div className="d-flex justify-content-end align-items-center mt-3">
                                 <div>
                                     <tr>
                                         <th>
@@ -127,15 +158,25 @@ export default function ShoppingCart() {
                                         </th>
                                     </tr>
                                 </div>
-                                <div>
-                                    <th>
-                                       <NavLink to='/User'><button type='button' className='btn btn-danger me-3'>Commander</button></NavLink>
 
-                                        <NavLink to='/Catalogue'><button type='button' className='btn btn-info'>continue vos achats</button></NavLink>
-                                    </th>
+                            </div>
+
+                            <div className="hstack gap-3 mt-3">
+                                <div className="p-2">
+                                    <Link to='/'>
+                                        <button type='button' className='btn btn-info text-white'> <IoIosArrowBack />Continue mes achats</button>
+                                    </Link>
+
                                 </div>
+                                <div className="p-2 ms-auto">
 
-
+                                    <Link to={connection ? '/FormulaireCommande' : '/User'}>
+                                        <button type='button' className={`btn btn-${connection ? 'danger' : 'info'}`} onClick={handleCommand}>
+                                            {connection ? 'Commander' : 'Connectez-vous pour commander'}
+                                            {connection && <IoIosArrowForward />}
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
 
                         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {dataProduitartites} from "../dataProduit.jsx";
 import CardArtistes from "../components/CardArtistes.jsx";
+import {Link} from "react-router-dom";
 
 const divStyle = {
     backgroundImage: 'url("/images/PHOTOGRAPHIE/téléchargement (4).jpg")',
@@ -18,9 +19,20 @@ export default function Artistes() {
                     </p>
 
 
-                    <div className="col-lg-2 col-md-3 col-sm-4 fw-bold">
-                        <h2>10 artistes</h2>
+                    <div className="hstack gap-3 mt-3">
+                        <div className="p-2 ms-auto col-lg-10 col-md-9 col-sm-8">
+                            <Link className="btn btn-primary fw-bold" to="/FormulaireArtiste" type='submit'>
+                                ARTISTE <faquestion/>
+
+                            </Link>
+                        </div>
+
+                        <div className="p-2 col-lg-2 col-md-3 col-sm-4 fw-bold">
+                            <h2>10 artistes</h2>
+                        </div>
+
                     </div>
+
                 </div>
                 <div className="row">
                     {
@@ -40,6 +52,12 @@ export default function Artistes() {
                         })
                     }
 
+                </div>
+
+                <div className="d-grid my-3">
+                    <Link to="/FormulaireArtiste" className="btn btn-primary fw-bold" type="button">
+                        ARTISTES  <faquestion/>
+                    </Link>
                 </div>
 
             </main>

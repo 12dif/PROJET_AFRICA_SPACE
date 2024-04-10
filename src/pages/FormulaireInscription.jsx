@@ -42,6 +42,8 @@ const divStyle = {
 };
 export default function FormulaireInscription() {
 
+    const [load, setload] = useState(false);
+
     const CONECT = useStore((state) => state.CONECT);
     const storedUser = JSON.parse(localStorage.getItem('user'));
 
@@ -153,6 +155,13 @@ export default function FormulaireInscription() {
                                             </div>
                                             <div className=" d-grid gap-2 mx-auto mt-5">
                                                 <button className="btn btn-danger" type="submit"> S'inscrire </button>
+
+                                                {
+                                                    load && <div className="spinner-border text-white text-end" style={{position:"absolute", right:'50%'}}  role="status">
+
+                                                        <span className="visually-hidden">Loading...</span>
+                                                    </div>
+                                                }
                                             </div>
                                         </form>
 

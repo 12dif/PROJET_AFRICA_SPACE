@@ -1,10 +1,12 @@
 import React from 'react'
 import {useForm} from "react-hook-form";
 import {useStore} from "../../Store.jsx";
+import {Link} from "react-router-dom";
 
 export default function Connexion() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,
+        formState: { errors } } = useForm();
 
     const storedUser = JSON.parse(localStorage.getItem('user'));
     const connection = useStore((state) => state.connection)
@@ -12,7 +14,7 @@ export default function Connexion() {
         if (storedUser && storedUser.email === data.email && storedUser.password === data.password) {
             connection();
         } else {
-            alert('Votre email ou votre mot de passe est erroné ');
+            alert('Nous Avons Pas Trouves Votre Compte ');
         }
     };
 
@@ -39,6 +41,12 @@ export default function Connexion() {
                                Connexion
                            </button>
                        </div>
+                           <div>
+                               <p className="text-center mt-2"><small>
+                                   <Link to="#" className="text-secondary">Mot de passe oublie?</Link>
+                               </small>
+                               </p>
+                           </div>
                        </form>
 
                    </div>
