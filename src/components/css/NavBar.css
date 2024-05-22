@@ -5,3 +5,10 @@
 .nav-Link{
     transition: all 0.7s ease-out;
 }
+.no-outline::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+

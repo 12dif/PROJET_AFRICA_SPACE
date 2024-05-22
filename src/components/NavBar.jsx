@@ -1,5 +1,5 @@
-import React from 'react'
-import {NavLink} from "react-router-dom";
+import React, {useState} from 'react'
+import {NavLink, useNavigate} from "react-router-dom";
 import {FaUser} from "react-icons/fa";
 import {MdAddShoppingCart, MdHome} from "react-icons/md";
 import {GoSearch} from "react-icons/go";
@@ -8,11 +8,56 @@ import {useStore} from "../../Store.jsx";
 import Logo from "./Logo.jsx";
 
 
+
 export default function NavBar() {
     const CARD = useStore((state) => state.CARD)
      const hide = ()=>{
         document.querySelector(`#navbarSupportedContent`).classList.remove(`show`)
      }
+
+    const [inputValue, setInputValue] = useState('');
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setInputValue(e.target.value.toLowerCase());
+    };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let content;
+        switch (inputValue) {
+            case 'home':
+                content = '';
+                break;
+            case 'catalogue':
+                content = 'Catalogue';
+                break;
+            case 'artiste':
+                content = 'Artistes';
+                break;
+            case 'enexposition':
+                content = 'EnExposition';
+                break;
+            case 'contact':
+                content = 'Contact';
+                break;
+            case 'inscription':
+                content = 'User';
+                break;
+            case 'connexion':
+                content = 'User';
+                break;
+            case 'panier':
+                content = 'shoppingcart';
+                break;
+            default:
+                content = '';
+                break;
+        }
+        navigate(`/${content}`);
+    };
+
 
     return (
         <>
@@ -109,26 +154,86 @@ export default function NavBar() {
                                 </li>
 
                             </ul>
-                            <form className="d-flex ms-auto mt-2  mx-3 d-none d-lg-block d-inline-flex" role="search">
-                                <input className="form-control me-2 position-relative rounded-pill border bg-white" style={{position:'relative'}}  type="search" placeholder="Search" aria-label="Search"/>
+                            <form className="d-flex ms-auto mt-2  mx-3 d-none d-lg-block d-inline-flex" role="search"
+                                  onSubmit={handleSubmit}
+                            >
+                                <input className="form-control no-outline me-2 position-relative rounded-pill border bg-white shadow-none"
+                                       style={{ position: 'relative' }}
+                                       type="search"
+                                       placeholder="Rechercher"
+                                       aria-label="Rechercher"
+                                       value={inputValue}
+                                       onChange={handleChange}
+                                       list="datalistOptions"
+                                />
                                 <button className="btn btn-0  position-absolute fs-5" type="submit" style={{ position: "fixed", right: "14%", bottom:'34px' }}>
-
                                     <GoSearch/>
                                 </button>
+                                <datalist id="datalistOptions">
+                                    <option value="home" />
+                                    <option value="catalogue" />
+                                    <option value="artiste" />
+                                    <option value="enexposition" />
+                                    <option value="contact" />
+                                    <option value="inscription" />
+                                    <option value="connexion" />
+                                    <option value="panier" />
+                                </datalist>
+
                             </form>
-                            <form className="d-flex ms-auto mt-2  mx-3 d-none d-lg-none d-sm-flex" role="search">
-                                <input className="form-control me-2 position-relative rounded-pill border bg-white" style={{position:'relative'}}  type="search" placeholder="Search" aria-label="Search"/>
+                            <form className="d-flex ms-auto mt-2  mx-3 d-none d-lg-none d-sm-flex" role="search"
+                                  onSubmit={handleSubmit}
+                            >
+                                <input className="form-control  no-outline me-2 position-relative rounded-pill border bg-white shadow-none "
+                                       style={{ position: 'relative'}}
+                                       type="search"
+                                       placeholder="Rechercher"
+                                       aria-label="Rechercher"
+                                       value={inputValue}
+                                       onChange={handleChange}
+                                       list="datalistOptions"
+                                />
                                 <button className="btn btn-0  position-absolute fs-5" type="submit" style={{ position: "fixed", right: "5%", bottom:'10px' }}>
 
                                     <GoSearch/>
                                 </button>
+                                <datalist id="datalistOptions">
+                                    <option value="home" />
+                                    <option value="catalogue" />
+                                    <option value="artiste" />
+                                    <option value="enexposition" />
+                                    <option value="contact" />
+                                    <option value="contact" />
+                                    <option value="inscription" />
+                                    <option value="connexion" />
+                                    <option value="shoppingcart" />
+                                </datalist>
                             </form>
-                            <form className="d-flex ms-auto mt-2  mx-3 d-flex d-lg-none d-md-none" role="search">
-                                <input className="form-control me-2 position-relative rounded-pill border bg-white" style={{position:'relative'}}  type="search" placeholder="Search" aria-label="Search"/>
+                            <form className="d-flex ms-auto mt-2  mx-3 d-flex d-lg-none d-md-none" role="search"
+                                  onSubmit={handleSubmit}
+                            >
+                                <input className="form-control no-outline me-2 position-relative rounded-pill border bg-white shadow-none"
+                                       style={{ position: 'relative' }}
+                                       type="search"
+                                       placeholder="Rechercher"
+                                       aria-label="Rechercher"
+                                       value={inputValue}
+                                       onChange={handleChange}
+                                       list="datalistOptions"
+                                />
                                 <button className="btn btn-0  position-absolute fs-5" type="submit" style={{ position: "fixed", right: "10%", bottom:'10px' }}>
-
                                     <GoSearch/>
                                 </button>
+                                <datalist id="datalistOptions">
+                                    <option value="home" />
+                                    <option value="catalogue" />
+                                    <option value="artiste" />
+                                    <option value="enexposition" />
+                                    <option value="contact" />
+                                    <option value="inscription" />
+                                    <option value="connexion" />
+                                    <option value="shoppingcart" />
+                                </datalist>
                             </form>
 
                                   <span className='d-none d-lg-block d-inline-flex mx-3 fs-4'>
