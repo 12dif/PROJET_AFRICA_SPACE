@@ -139,7 +139,6 @@ export default function ProduitItem1() {
                                         <div key={index}>
                                             <p className='fw-bold'>
                                                <strong className='fs-1 me-2'><FaCircleUser /></strong>
-                                                {commentaire.nom}
                                             </p>
                                             <p> {commentaire.contenu}</p>
                                             <p className='text-secondary'> <small>{commentaire.date}</small> </p>
@@ -151,8 +150,6 @@ export default function ProduitItem1() {
                                 </div>
                             </div>
                                     )}
-
-
 
                             </div>
 
