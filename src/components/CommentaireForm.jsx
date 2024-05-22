@@ -91,11 +91,8 @@ export default function CommentaireForm({ onCommentSubmit, commentaires }) {
         return stars;
     };
 
-
-
     return (
         <>
-
                 {!CONECT ? (
                         <div className="mt-3">
                             <Link to="/User" className="btn btn-info">

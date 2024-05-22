@@ -189,7 +189,7 @@ export default function FormulaireArtiste() {
                                         <input
                                             type="file"
                                             ref={fileInputRef}
-                                            style={{ display: 'none' }}
+                                            style={{display: 'none'}}
                                             onChange={handleFileChange}
                                             id='file'
 

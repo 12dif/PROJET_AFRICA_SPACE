@@ -16,8 +16,6 @@ export default function ProduitItem1() {
     const [commentaires, setCommentaires] = useState([]);
 
 
-
-
     const updateCARD = useStore((state) => state.updateCARD)
     const CARD = useStore((state) => state.CARD)
 
@@ -138,7 +136,8 @@ export default function ProduitItem1() {
                                     {commentaires.map((commentaire, index) => (
                                         <div key={index}>
                                             <p className='fw-bold'>
-                                               <strong className='fs-1 me-2'><FaCircleUser /></strong>
+                                               <strong className='fs-1 me-2'><FaCircleUser />
+                                               </strong>
                                             </p>
                                             <p> {commentaire.contenu}</p>
                                             <p className='text-secondary'> <small>{commentaire.date}</small> </p>
