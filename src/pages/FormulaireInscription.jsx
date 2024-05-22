@@ -104,11 +104,6 @@ export default function FormulaireInscription() {
                                                 <label className="form-check-label fw-bold" htmlFor="inlineRadio2">Mme</label>
                                             </div>
                                             <p className='text-danger'>{errors.sexe?.message}</p>
-                                            <div className="mb-3 mt-3">
-                                                <label htmlFor="lastname" className="form-label fw-bold ">Prenom</label>
-                                                <input {...register("lastname")}  type="text" className="form-control border-0 name" id="lastname" />
-                                                <p className='text-danger'>{errors.lastname?.message}</p>
-                                            </div>
                                             <div className="mb-3">
                                                 <label htmlFor="name" className="form-label fw-bold">Nom</label>
                                                 <input {...register("firstname")} type="text" className="form-control border-0 " id="name1"/>
