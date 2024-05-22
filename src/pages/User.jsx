@@ -61,7 +61,7 @@ export default function User () {
                                                     <FaUserCircle />
                                                 </h6>
                                                 <span className='text-center text-danger fw-bold fs-4'>
-                                                   {storedUser.firstname} {storedUser.lastname}
+                                                   {storedUser.firstname}
                                             </span>
                                             </div>
 
@@ -70,22 +70,7 @@ export default function User () {
                                                     Nom:  <span className='fs-5 fw-normal'> {storedUser.firstname}</span>
                                                 </p>
                                             </div>
-                                            <div className='mx-3'>
-                                                <p className='fs-4 fw-bold'>
-                                                    Prenom:  <span className='fs-5 fw-normal'>  {storedUser.lastname}</span>
-                                                </p>
-                                            </div>
-                                            <div className='mx-3'>
-                                                <p className='fs-4 fw-bold'>
-                                                    Nom d'utilisateur:<span className='fs-5 fw-normal'>  {storedUser.username}</span>
-                                                </p>
 
-                                            </div>
-                                            <div className='mx-3'>
-                                                <p className='fs-4 fw-bold'>
-                                                    Pays:<span className='fs-5 fw-normal'>{storedUser.country}</span>
-                                                </p>
-                                            </div>
                                             <div className='mx-3'>
                                                 <p className='fs-4 fw-bold'>
                                                     Sexe:<span className='fs-5 fw-normal'>{storedUser.sexe}</span>

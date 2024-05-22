@@ -10,13 +10,7 @@ import {useStore} from "../../Store.jsx";
 const schema = yup
     .object({
         sexe: yup.string().required("Ce champ est obligatoire"),
-        lastname: yup.string().required("Ce champ est obligatoire"),
         firstname: yup.string().required("Ce champ est obligatoire"),
-        username: yup.string().required("Ce champ est obligatoire")
-            .matches(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                "Le nom d'utilisateur doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un symbole"
-            ),
         password: yup.string().required("Ce champ est obligatoire")
             .matches(
             /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
@@ -25,8 +19,6 @@ const schema = yup
         confirmPassword: yup.string().required("Ce champ est obligatoire")
 
             .oneOf([yup.ref('password'), null], 'Les mots de passe doivent correspondre'),
-
-        country: yup.string().required("La sélection d'un pays est obligatoire"),
 
         email: yup.string().required("Ce champ est obligatoire").email('Entrer un email valide')
             .matches(/(@gmail\.com|@yahoo\.fr)$/, 'Veuillez entrer une adresse Gmail ou Yahoo valide'),
@@ -122,22 +114,6 @@ export default function FormulaireInscription() {
                                                 <input {...register("firstname")} type="text" className="form-control border-0 " id="name1"/>
                                                 <p className='text-danger'>{errors.firstname?.message}</p>
                                             </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="name" className="form-label fw-bold">Nom d'utilsateur</label>
-                                                <input {...register("username")} type="text" className="form-control border-0 " id="name2"/>
-                                                <p className='text-danger'>{errors.username?.message}</p>
-                                            </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="name" className="form-label fw-bold">Pays</label>
-                                                <select  {...register("country")} className="form-select border-0">
-                                                    <option value=''>Sélectionnez un Pays</option>
-                                                    {countries.map(country => (
-                                                        <option key={country.cca2} value={country.name.common}>{country.name.common} </option>
-                                                    ))}
-                                                </select>
-                                                <p className='text-danger'>{errors.country?.message}</p>
-                                            </div>
-
                                             <div className="mb-3">
                                                 <label htmlFor="emailtext" className="form-label fw-bold">E-mail</label>
                                                 <input  {...register("email")} type="email" className="form-control border-0" id="emailtext" placeholder="xyz@gmail.com" />
