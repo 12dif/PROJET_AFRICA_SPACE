@@ -1,12 +1,12 @@
 import React from 'react';
-import {FaGoogle, FaUser, FaUserCircle} from "react-icons/fa";
+import {FaGoogle, FaUserCircle} from "react-icons/fa";
 import Inscription from "../components/Inscription.jsx";
 import Connexion from "../components/Connexion.jsx";
 import { useStore } from "../../Store.jsx";
 import {RiLogoutCircleRLine} from "react-icons/ri";
 
 export default function User () {
-    // Utilisez le hook de votre store
+
     const CONECT = useStore((state) => state.CONECT);
 
 

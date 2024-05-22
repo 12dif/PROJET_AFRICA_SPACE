@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {dataProduitdeux, dataProduitphotographie, dataProduittrois} from "../dataProduit.jsx";
 import CardTrois from "../components/CardTrois.jsx";
-import CardDeux from "../components/CardDeux.jsx";
-import CardHuit from "../components/CardHuit.jsx";
-import SiedBar from "../components/SiedBar.jsx";
+
 
 export default function Catalogue() {
 
@@ -11,44 +9,50 @@ export default function Catalogue() {
         backgroundImage: 'url("/images/travail-mixe-de-photographie-et-peinture.jpg")',
         height: '40vh',
     };
-    const [filteredDataTrois, setFilteredDataTrois] = useState(dataProduittrois);
-    const [filteredDataDeux, setFilteredDataDeux] = useState(dataProduitdeux);
-    const [filteredDataHuit, setFilteredDataHuit] = useState(dataProduitphotographie);
-    const handleFilters = (filters) => {
-        let newDataTrois = [...dataProduittrois];
-        let newDataDeux = [...dataProduitdeux];
-        let newDataHuit = [...dataProduitphotographie];
+
+    const [category, setCategory]=useState('')
+    const[name,setName]=useState('')
+    const [minPrice, setMinPrice] = useState(5000); // Prix minimum par défaut
+    const [maxPrice, setMaxPrice] = useState(3000000);
+    const [produit, setProduit]=useState([])
+    console.log(category)
+
+    function getProduitByCategory() {
+        let proByCat = [];
+
+        if (category === 'Sculptures') {
+            proByCat = dataProduittrois;
+        } else if (category === 'Photographies') {
+            proByCat = dataProduitphotographie;
+        } else if (category === 'Peintures') {
+            proByCat = dataProduitdeux;
+        }
+
+        setProduit(proByCat);
+    }
+
+    useEffect(() => {
+        getProduitByCategory();
+    }, [category])
 
 
-        // Filtrer les données en fonction des valeurs sélectionnées dans les filtres
-        if (filters.categorie) {
-            newDataTrois = newDataTrois.filter(item => item.categorie === filters.categorie);
-            newDataDeux = newDataDeux.filter(item => item.categorie === filters.categorie);
-            newDataHuit = newDataHuit.filter(item => item.categorie === filters.categorie);
-        }
-        if (filters.artiste) {
-            newDataTrois = newDataTrois.filter(item => item.artiste === filters.artiste);
-            newDataDeux = newDataDeux.filter(item => item.artiste === filters.artiste);
-            newDataHuit = newDataHuit.filter(item => item.artiste === filters.artiste);
-        }
-        if (filters.prixMin) {
-            newDataTrois = newDataTrois.filter(item => item.price >= filters.prixMin);
-            newDataDeux = newDataDeux.filter(item => item.price >= filters.prixMin);
-            newDataHuit = newDataHuit.filter(item => item.price >= filters.prixMin);
-        }
-        if (filters.prixMax) {
-            newDataTrois = newDataTrois.filter(item => item.price <= filters.prixMax);
-            newDataDeux = newDataDeux.filter(item => item.price <= filters.prixMax);
-            newDataHuit = newDataHuit.filter(item => item.price <= filters.prixMax);
-        }
-        // Vous pouvez ajouter d'autres filtres ici comme le prix, etc.
+    function getProduitByName() {
+        let proByName = [...dataProduittrois, ...dataProduitdeux, ...dataProduitphotographie].filter(item=>item.name.includes(name))
+        setProduit(proByName);
+    }
 
-        // Mettre à jour les états des données filtrées
-        setFilteredDataTrois(newDataTrois);
-        setFilteredDataDeux(newDataDeux);
-        setFilteredDataHuit(newDataHuit);
+    useEffect(() => {
+        getProduitByName();
+    }, [name]);
 
-    };
+    function getProduitByPrice() {
+        let proByPrice = [...dataProduittrois, ...dataProduitdeux, ...dataProduitphotographie].filter(item => item.price >= minPrice && item.price <= maxPrice)
+        setProduit(proByPrice);
+    }
+
+    useEffect(() => {
+        getProduitByPrice();
+    }, [maxPrice, minPrice]);
 
 
     return (
@@ -58,9 +62,105 @@ export default function Catalogue() {
             <main className='container-fluid d-flex justify-content-center'>
                 <div className='container-fluid row mt-5'>
                     <div className='col-lg-2 col-md-3 mt-5 bg-body-secondary' style={{height:'680px'}}>
-                        <SiedBar
-                            handleFilters={handleFilters}
-                        />
+                        <nav className="list-group list-group-flush">
+                            <p className='fs-2 fw-bold mt-3'>Filtre</p>
+                            <div className="btn-group-vertical">
+                                <span className='fw-bold text-secondary mb-3'>Catégorie</span>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Peintures"
+                                           onChange={(e) => setCategory(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox1">Peintures</label>
+                                </div>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Photographies"
+                                           onChange={(e) => setCategory(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox2">Photographies</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Sculptures"
+                                           onChange={(e) => setCategory(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Sculptures</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox4" value="Dessins"
+                                           onChange={(e) => setCategory(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox4">Dessins</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox5" value="Oeuvres Litteraires"
+                                           onChange={(e) => setCategory(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox5">Oeuvres Litteraires</label>
+                                </div>
+                            </div>
+
+
+                            <div className='btn-group-vertical'>
+                                <span className='fw-bold text-secondary mb-3 mt-3'>Artiste</span>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="GAUTHIER"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox1">Gauthier</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="LEO"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox2">Leo</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="JESSICA"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Jessica</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="AHMED"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Ahmed</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="DYLAN"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Dylan</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="LUCY"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Lucy</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="FRANCK"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Franck</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="FRED"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Fred</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="GREC"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Grec</label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="DONALD"
+                                           onChange={(e) => setName(e.target.value)}/>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">Donald</label>
+                                </div>
+                            </div>
+                            <span className='fw-bold mt-3 mb-3 text-secondary'>Prix</span>
+                            <div className='d-flex justify-content-between '>
+                                <span>{minPrice}Fcfa</span>
+                                <span>{maxPrice}Fcfa</span>
+                            </div>
+                            <input
+                                type='range'
+                                name='prixMin'
+                                value={maxPrice}
+                                min='5000'
+                                max='3000000'
+                                onChange={(e) => setMaxPrice(parseInt(e.target.value))}
+                            />
+                        </nav>
                     </div>
                     <div className='col-lg-10 col-md-9 ps-3' >
                         <div>
@@ -79,7 +179,7 @@ export default function Catalogue() {
                             <div className="row  mt-5">
 
                                 {
-                                    filteredDataTrois.map((item, index)=>{
+                                    produit.map((item, index)=>{
                                         return(
                                             <div  className="col-md-6 col-lg-3 mt-4" key={index}>
                                                 <CardTrois
@@ -89,6 +189,7 @@ export default function Catalogue() {
                                                     price={item.price}
                                                     id={item.id}
                                                     produit={item}
+                                                    category={item.category}
 
                                                 />
 
@@ -98,47 +199,7 @@ export default function Catalogue() {
                                 }
 
                             </div>
-                            <div className="row my-5 mb-4">
-                                {
-                                    filteredDataDeux.map((item, index)=>{
-                                        return(
-                                            <div className="col-md-6 col-lg-3 mt-4" key={index}>
-                                                <CardDeux
-                                                    image={item.image}
-                                                    title={item.title}
-                                                    origin={item.origin}
-                                                    price={item.price}
-                                                    id={item.id}
-                                                    produit={item}
 
-                                                />
-
-                                            </div>
-                                        )
-                                    })
-                                }
-
-                            </div>
-                            <div className="row my-5 mb-4">
-                                {
-                                    filteredDataHuit.map((item, index)=>{
-                                        return(
-                                            <div className="col-md-6 col-lg-3 mt-4" key={index}>
-                                                <CardHuit
-                                                    image={item.image}
-                                                    title={item.title}
-                                                    origin={item.origin}
-                                                    price={item.price}
-                                                    id={item.id}
-                                                    produit={item}
-                                                />
-
-                                            </div>
-                                        )
-                                    })
-                                }
-
-                            </div>
                         </div>
                     </div>
 
