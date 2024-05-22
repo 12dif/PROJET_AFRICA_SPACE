@@ -45,11 +45,6 @@ export default function User () {
                             <p className="text-center fs-4 fw-bold">
                                 BIENVENUE  <span className='text-danger'>{storedUser.firstname}</span>
                             </p>
-                            <p className="fs-5 fw-bold text-center mt-5 mb-5">
-                                Vous êtes connecté en tant que   <span className='text-danger'>{storedUser.username}</span>
-                            </p>
-
-
                             <div className='row d-flex justify-content-center'>
                                 <div className='col-lg-8'>
                                     <div className="card bg-body-secondary border-0">

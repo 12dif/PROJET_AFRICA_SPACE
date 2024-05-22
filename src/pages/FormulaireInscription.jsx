@@ -147,9 +147,6 @@ export default function FormulaireInscription() {
                             <p className="text-center display-6 fw-bold">
                                 BIENVENUE {storedUser.firstname}
                             </p>
-                            <p className="fs-5 fw-bold text-center mt-5 mb-5">
-                                Vous êtes connecté en tant que {storedUser.username}
-                            </p>
                         </div>
                     )}
                 </div>
